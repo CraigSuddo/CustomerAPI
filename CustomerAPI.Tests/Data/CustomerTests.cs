@@ -60,7 +60,7 @@ namespace CustomerAPI.Tests.Data
         }
 
         [Test]
-        public void ShouldBeAbleToUpdateACustomer()
+        public void ShouldBeAbleTsoUpdateACustomer()
         {
             Assert.Pass();
         }
@@ -68,7 +68,23 @@ namespace CustomerAPI.Tests.Data
         [Test]
         public void ShouldBeAbleToDeleteACustomer()
         {
-            Assert.Pass();
+            var customers = new List<Customer>();
+            var deleteCustomer = new Customer { Title = "Mr", Forename = "Mark", Surname = "Test", EmailAddress = "mark@test.com", MobileNo = "07112333341", Id = Guid.NewGuid().ToString() };
+            customers.Add(deleteCustomer);
+
+            // Arrange 
+            var newContext = new Mock<IApplicationDbContext>();
+            newContext.Setup(c => c.Customers).ReturnsDbSet(customers);
+            newContext.Setup(c => c.Customers.Remove(deleteCustomer)).Callback<Customer>(s => customers.Remove(s));
+
+            var customersService = new CustomersService(newContext.Object);
+
+            // Act
+            customersService.DeleteCustomerById(deleteCustomer.Id);
+            var serviceCustomers = customersService.GetCustomers();
+
+            // Assert
+            Assert.AreEqual(serviceCustomers.Count, 0);
         }
     }
 }

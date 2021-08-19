@@ -25,5 +25,12 @@ namespace CustomerAPI.Data
             _dbContext.Customers.Add(newCustomer);
             _dbContext.SaveChanges();
         }
+
+        public void DeleteCustomerById(string id)
+        {
+            var customer = _dbContext.Customers.FirstOrDefault(c => c.Id == id);
+            _dbContext.Customers.Remove(customer);
+            _dbContext.SaveChanges();
+        }
     }
 }
