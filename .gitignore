@@ -1,3 +1,12 @@
 
-CustomerAPI/.vs/*
-CustomerAPI/CustomerAPI/obj/*
+/.vs/*
+/CustomerAPI/obj/*
+CustomerAPI/obj/*
+CustomerAPI.Tests/obj/*
+CustomerAPI/obj/*
+
+CustomerAPI/obj/project.nuget.cache
+CustomerAPI/obj/project.assets.json
+.vs/CustomerAPI/v16/.suo
+CustomerAPI/obj/Debug/net5.0/CustomerAPI.assets.cache
+CustomerAPI/obj/CustomerAPI.csproj.nuget.dgspec.json
