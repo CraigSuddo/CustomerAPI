@@ -13,3 +13,4 @@ CustomerAPI/obj/CustomerAPI.csproj.nuget.dgspec.json
 .vs/*
 CustomerAPI.Entities/obj/*
 CustomerAPI.Logic/obj/*
+CustomerAPI.Data/obj/*
