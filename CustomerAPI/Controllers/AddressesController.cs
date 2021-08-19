@@ -9,7 +9,7 @@ namespace CustomerAPI.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class AddressController : ControllerBase
+    public class AddressesController : ControllerBase
     { 
         public IActionResult Get()
         {

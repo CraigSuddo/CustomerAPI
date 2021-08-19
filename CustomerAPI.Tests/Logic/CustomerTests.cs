@@ -1,6 +1,6 @@
 using NUnit.Framework;
 
-namespace CustomerAPI.Tests
+namespace CustomerAPI.Tests.Logic
 {
     public class Tests
     {

@@ -19,3 +19,5 @@ CustomerAPI/bin/*
 CustomerAPI/obj/*
 CustomerAPI.Entities/bin/*
 CustomerAPI/obj/*
+CustomerAPI.Tests/bin/*
+CustomerAPI.Logic/bin/*
