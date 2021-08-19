@@ -246,6 +246,30 @@
         "runtime": {
           "lib/net5.0/System.Diagnostics.DiagnosticSource.dll": {}
         }
+      },
+      "CustomerAPI.Data/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "CustomerAPI.Entities": "1.0.0",
+          "Microsoft.EntityFrameworkCore": "5.0.9"
+        },
+        "compile": {
+          "bin/placeholder/CustomerAPI.Data.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/CustomerAPI.Data.dll": {}
+        }
+      },
+      "CustomerAPI.Entities/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/CustomerAPI.Entities.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/CustomerAPI.Entities.dll": {}
+        }
       }
     }
   },
@@ -726,10 +750,21 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "CustomerAPI.Data/1.0.0": {
+      "type": "project",
+      "path": "../CustomerAPI.Data/CustomerAPI.Data.csproj",
+      "msbuildProject": "../CustomerAPI.Data/CustomerAPI.Data.csproj"
+    },
+    "CustomerAPI.Entities/1.0.0": {
+      "type": "project",
+      "path": "../CustomerAPI.Entities/CustomerAPI.Entities.csproj",
+      "msbuildProject": "../CustomerAPI.Entities/CustomerAPI.Entities.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net5.0": [
+      "CustomerAPI.Data >= 1.0.0",
       "Microsoft.EntityFrameworkCore >= 5.0.9",
       "Microsoft.EntityFrameworkCore.InMemory >= 5.0.9",
       "Swashbuckle.AspNetCore >= 5.6.3"
@@ -768,7 +803,11 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "G:\\GitHub\\CustomerAPI\\CustomerAPI.Data\\CustomerAPI.Data.csproj": {
+              "projectPath": "G:\\GitHub\\CustomerAPI\\CustomerAPI.Data\\CustomerAPI.Data.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
