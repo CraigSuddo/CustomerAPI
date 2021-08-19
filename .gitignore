@@ -10,3 +10,6 @@ CustomerAPI/obj/project.assets.json
 .vs/CustomerAPI/v16/.suo
 CustomerAPI/obj/Debug/net5.0/CustomerAPI.assets.cache
 CustomerAPI/obj/CustomerAPI.csproj.nuget.dgspec.json
+.vs/*
+CustomerAPI.Entities/obj/*
+CustomerAPI.Logic/obj/*
