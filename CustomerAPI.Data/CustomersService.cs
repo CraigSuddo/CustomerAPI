@@ -28,8 +28,19 @@ namespace CustomerAPI.Data
 
         public void DeleteCustomerById(string id)
         {
-            var customer = _dbContext.Customers.FirstOrDefault(c => c.Id == id);
+            var customer = GetCustomerById(id);
             _dbContext.Customers.Remove(customer);
+            _dbContext.SaveChanges();
+        }
+
+        public Customer GetCustomerById(string id)
+        {
+            return _dbContext.Customers.FirstOrDefault(c => c.Id == id);
+        }
+
+        public void UpdateCustomer(Customer updateCustomer)
+        {
+            _dbContext.Customers.Update(updateCustomer);
             _dbContext.SaveChanges();
         }
     }

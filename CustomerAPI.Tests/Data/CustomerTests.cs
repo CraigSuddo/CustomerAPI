@@ -8,15 +8,8 @@ using System.Collections.Generic;
 
 namespace CustomerAPI.Tests.Data
 {
-    public class Tests
-    { 
-
-        [SetUp]
-        public void Setup()
-        {
-
-        }
-
+    public class CustomerTests
+    {
         [Test]
         public void GetCustomersFromDatabase()
         {
@@ -39,10 +32,32 @@ namespace CustomerAPI.Tests.Data
         }
 
         [Test]
+        public void GetCustomerFromDatabase()
+        {
+            // Arrange 
+            var guidToFind = "6ade1788-1e2e-48fa-81a4-cefb04805a24";
+            var customerToFind = new Customer { Title = "Mr", Forename = "Bob", Surname = "Test", EmailAddress = "bob@testcom", MobileNo = "07112333344", Id = guidToFind };
+            var customers = new List<Customer>() {
+                customerToFind
+            };
+
+            var newContext = new Mock<IApplicationDbContext>();
+            newContext.Setup(c => c.Customers).ReturnsDbSet(customers);
+
+            var customersService = new CustomersService(newContext.Object);
+
+            // Act
+            var serviceCustomer = customersService.GetCustomerById(guidToFind);
+
+            // Assert
+            Assert.AreEqual(customerToFind, serviceCustomer);
+        }
+
+        [Test]
         public void ShouldBeAbleToAddACustomer()
         {
-            var customers = new List<Customer>();
             // Arrange 
+            var customers = new List<Customer>();
             var newContext = new Mock<IApplicationDbContext>();
             newContext.Setup(c => c.Customers).ReturnsDbSet(customers);
             newContext.Setup(c => c.Customers.Add(It.IsAny<Customer>())).Callback<Customer>(s => customers.Add(s));
@@ -62,7 +77,24 @@ namespace CustomerAPI.Tests.Data
         [Test]
         public void ShouldBeAbleTsoUpdateACustomer()
         {
-            Assert.Pass();
+            // Arrange 
+            var guidToUpdate = "6ade1788-1e2e-48fa-81a4-cefb04805a24";
+            var customerToBeUpdated = new Customer { Title = "Mr", Forename = "Bob", Surname = "Test", EmailAddress = "bob@testcom", MobileNo = "07112333344", Id = guidToUpdate };
+            var customers = new List<Customer>() {customerToBeUpdated
+            };
+
+            var newContext = new Mock<IApplicationDbContext>();
+            newContext.Setup(c => c.Customers).ReturnsDbSet(customers);
+
+            var customersService = new CustomersService(newContext.Object);
+            var updateCustomer = new Customer { Title = "Mr", Forename = "Paul", Surname = "Testing", EmailAddress = "bob@testcom", MobileNo = "07112333344", Id = guidToUpdate };
+
+            // Act
+            customersService.UpdateCustomer(updateCustomer);
+            var updatedCustomer = customersService.GetCustomerById(guidToUpdate);
+
+            // Assert
+            newContext.Verify(d => d.Customers.Update(updateCustomer), Times.Once);
         }
 
         [Test]

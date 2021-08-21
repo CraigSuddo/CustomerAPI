@@ -11,10 +11,10 @@ namespace CustomerAPI.Controllers
     [Route("[controller]")]
     public class CustomersController : ControllerBase
     { 
-
         public IActionResult Get()
         {
             return Ok();
         }
+
     }
 }

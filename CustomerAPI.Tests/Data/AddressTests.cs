@@ -9,13 +9,14 @@ namespace CustomerAPI.Tests.Data
 {
     public class AddressTests
     {
-        [SetUp]
-        public void Setup()
+        [Test]
+        public void ShouldBeAbleToAddAnAddress()
         {
+            Assert.Pass();
         }
 
         [Test]
-        public void ShouldBeAbleToAddAnAddress()
+        public void ShouldBeAbleToGetAnAddress()
         {
             Assert.Pass();
         }
