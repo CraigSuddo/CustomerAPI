@@ -1,7 +1,7 @@
 ﻿using CustomerAPI.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace CustomerAPI.Data
+namespace CustomerAPI.Data.Interfaces
 {
     public interface IApplicationDbContext
     {

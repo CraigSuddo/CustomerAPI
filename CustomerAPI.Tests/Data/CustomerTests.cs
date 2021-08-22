@@ -1,4 +1,5 @@
 using CustomerAPI.Data;
+using CustomerAPI.Data.Interfaces;
 using CustomerAPI.Entities;
 using Moq;
 using Moq.EntityFrameworkCore;
