@@ -1,13 +1,11 @@
-﻿using CustomerAPI.Entities;
-using System;
+﻿using CustomerAPI.Data.Interfaces;
+using CustomerAPI.Entities;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CustomerAPI.Data
 {
-    public class CustomersService
+    public class CustomersService : ICustomersService
     {
         private IApplicationDbContext _dbContext { get; set; }
 
@@ -20,9 +18,9 @@ namespace CustomerAPI.Data
             return _dbContext.Customers.ToList();
         }
 
-        public void AddCustomer(Customer newCustomer)
+        public void AddCustomer(Customer customer)
         {
-            _dbContext.Customers.Add(newCustomer);
+            _dbContext.Customers.Add(customer);
             _dbContext.SaveChanges();
         }
 

@@ -91,7 +91,6 @@ namespace CustomerAPI.Tests.Data
 
             // Act
             customersService.UpdateCustomer(updateCustomer);
-            var updatedCustomer = customersService.GetCustomerById(guidToUpdate);
 
             // Assert
             newContext.Verify(d => d.Customers.Update(updateCustomer), Times.Once);
